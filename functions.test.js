@@ -18,5 +18,16 @@ test("shoud be falsy", () => {
 });
 
 test("user should be Brad Traversy object", () => {
-  expect(functions.createUser()).toBe({ firstName: "Brad", lastName: "Traversy"});
+  expect(functions.createUser()).toEqual({ firstName: "Brad", lastName: "Traversy"});
+});
+
+test("should be less than 1600", () => {
+  const load1 = 800;
+  const load2 = 800;
+  // expect(load1 + load2).toBeLessThan(1600);
+  expect(load1 + load2).toBeLessThanOrEqual(1600);
+});
+
+test("there's no i in team", () => {
+  expect("team").not.toMatch(/I/i);
 });
