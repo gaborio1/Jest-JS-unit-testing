@@ -1,4 +1,4 @@
-  //  const { TestWatcher } = require("jest");
+//  const { TestWatcher } = require("jest");
 
 // BRING IN functions.js FILE
 const functions = require("./functions");
@@ -8,28 +8,27 @@ const functions = require("./functions");
 // afterEach(() => closeDatabase());
 
 // RUN ONCE BEFORE/AFTER ALL TESTS
-beforeAll(() => initDatabase());
-afterAll(() => closeDatabase());
+// beforeAll(() => initDatabase());
+// afterAll(() => closeDatabase());
 
-// 
-const initDatabase = () => console.log('Database Initialized...');
-const closeDatabase = () => console.log('Database Closed...');
+// const initDatabase = () => console.log("Database Initialized...");
+// const closeDatabase = () => console.log("Database Closed...");
 
-// const nameCheck = () => console.log('Checking Name....');
+const nameCheck = () => console.log("Checking Name....");
 
-// describe('Checking Names', () => {
-//   beforeEach(() => nameCheck());
+describe("Checking Names", () => {
+  beforeEach(() => nameCheck());
 
-//   test('User is Jeff', () => {
-//     const user = 'Jeff';
-//     expect(user).toBe('Jeff');
-//   });
+  test("User is Jeff", () => {
+    const user = "Jeff";
+    expect(user).toBe("Jeff");
+  });
 
-//   test('User is Karen', () => {
-//     const user = 'Karen';
-//     expect(user).toBe('Karen');
-//   });
-// });
+  test("User is Karen", () => {
+    const user = "Karen";
+    expect(user).toBe("Karen");
+  });
+});
 
 // PASS IN A DESCRIPTION AND TTHE NEXT PARAMETER IS OUR FUNCTION
 // TO BE
@@ -50,7 +49,6 @@ test("adds 2 + 2 to NOT equal 5", () => {
 // toBeTruthy matches anything that an if statement treats as true
 // toBeFalsy matches anything that an if statement treats as false
 
-
 // TO BE NULL
 test("shoud be null", () => {
   expect(functions.isNull()).toBeNull();
@@ -61,7 +59,10 @@ test("shoud be falsy", () => {
 });
 // TO EQUAL (FOR REFERENCE TYPES: array, object)
 test("user should be Brad Traversy object", () => {
-  expect(functions.createUser()).toEqual({ firstName: "Brad", lastName: "Traversy"});
+  expect(functions.createUser()).toEqual({
+    firstName: "Brad",
+    lastName: "Traversy",
+  });
 });
 // LESS THAN(OR EQUAL)/ GREATER THAN(OR EQUAL)
 test("should be less than 1600", () => {
@@ -76,11 +77,11 @@ test("there's no i in team", () => {
 });
 // TO CONTAIN (ARRAYS)
 test("admin should be in usrnames", () => {
-  const userNames = ["john", "karen", "admin"]
+  const userNames = ["john", "karen", "admin"];
   expect(userNames).toContain("admin");
 });
 
-// ASYNC DATA 
+// ASYNC DATA
 
 // PROMISE
 // test("user fetched name should be Leanne Graham", () => {
@@ -92,8 +93,8 @@ test("admin should be in usrnames", () => {
 // });
 
 // Async Await
-test('User fetched name should be Leanne Graham', async () => {
+test("User fetched name should be Leanne Graham", async () => {
   expect.assertions(1);
   const data = await functions.fetchUser();
-  expect(data.name).toEqual('Leanne Graham');
+  expect(data.name).toEqual("Leanne Graham");
 });
