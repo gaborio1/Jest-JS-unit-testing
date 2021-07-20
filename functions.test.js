@@ -3,6 +3,34 @@
 // BRING IN functions.js FILE
 const functions = require("./functions");
 
+// RUN BEFORE/AFTER EVERY TEST IN THIS FILE
+// beforeEach(() => initDatabase());
+// afterEach(() => closeDatabase());
+
+// RUN ONCE BEFORE/AFTER ALL TESTS
+beforeAll(() => initDatabase());
+afterAll(() => closeDatabase());
+
+// 
+const initDatabase = () => console.log('Database Initialized...');
+const closeDatabase = () => console.log('Database Closed...');
+
+// const nameCheck = () => console.log('Checking Name....');
+
+// describe('Checking Names', () => {
+//   beforeEach(() => nameCheck());
+
+//   test('User is Jeff', () => {
+//     const user = 'Jeff';
+//     expect(user).toBe('Jeff');
+//   });
+
+//   test('User is Karen', () => {
+//     const user = 'Karen';
+//     expect(user).toBe('Karen');
+//   });
+// });
+
 // PASS IN A DESCRIPTION AND TTHE NEXT PARAMETER IS OUR FUNCTION
 // TO BE
 test("adds 2 + 2 to equal 4", () => {
