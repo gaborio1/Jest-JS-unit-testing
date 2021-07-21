@@ -3,19 +3,22 @@
 // BRING IN functions.js FILE
 const functions = require("./functions");
 
+// WE CAN RUN ANY TYPE OF FUNCTIONALITY BEFORE/AFTER A TEST/CERTAIN NUMBER OR GROUP OF TESTS WITH before/afterEAch(), before/afterAll() AND describe()
+
 // RUN BEFORE/AFTER EVERY TEST IN THIS FILE
-// beforeEach(() => initDatabase());
-// afterEach(() => closeDatabase());
+beforeEach(() => initDatabase());
+afterEach(() => closeDatabase());
 
 // RUN ONCE BEFORE/AFTER ALL TESTS
 // beforeAll(() => initDatabase());
 // afterAll(() => closeDatabase());
 
-// const initDatabase = () => console.log("Database Initialized...");
-// const closeDatabase = () => console.log("Database Closed...");
+const initDatabase = () => console.log("Database Initialized...");
+const closeDatabase = () => console.log("Database Closed...");
 
 const nameCheck = () => console.log("Checking Name....");
 
+// DESCRIBE (TARGET CERTAIN TESTS, THEY WILL RUN ONCE BEFORE TESTS INSIDE DESCRIBE BLOCK) 
 describe("Checking Names", () => {
   beforeEach(() => nameCheck());
 
