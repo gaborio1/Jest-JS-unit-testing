@@ -1,7 +1,12 @@
 //  const { TestWatcher } = require("jest");
 
 // BRING IN functions.js FILE
-const functions = require("./functions");
+
+// IMPORT ONE
+// const functions = require("./functions");
+
+// IMPORT MULTIPLE
+const { functions, uppercase } = require("./functions");
 
 // WE CAN RUN ANY TYPE OF FUNCTIONALITY BEFORE/AFTER A TEST/CERTAIN NUMBER OR GROUP OF TESTS WITH before/afterEAch(), before/afterAll() AND describe()
 
@@ -21,7 +26,7 @@ const closeDatabase = () => console.log("Database Closed...");
 const nameCheck = () => console.log("Checking Name....");
 
 // 3.
-// DESCRIBE (TARGET CERTAIN TESTS, THEY WILL RUN ONCE BEFORE TESTS INSIDE DESCRIBE BLOCK) 
+// DESCRIBE (TARGET CERTAIN TESTS, THEY WILL RUN ONCE BEFORE TESTS INSIDE DESCRIBE BLOCK)
 // describe("Checking Names", () => {
 //   beforeEach(() => nameCheck());
 
@@ -43,6 +48,7 @@ test("adds 2 + 2 to equal 4", () => {
   // toBe LOOKS FOR A SPECIFIC PRIMITIVE VALUE
   expect(functions.add(2, 2)).toBe(4);
 });
+
 // NOT TO BE
 test("adds 2 + 2 to NOT equal 5", () => {
   expect(functions.add(2, 2)).not.toBe(5);
@@ -103,4 +109,9 @@ test("User fetched name should be Leanne Graham", async () => {
   expect.assertions(1);
   const data = await functions.fetchUser();
   expect(data.name).toEqual("Leanne Graham");
+});
+
+// ============================================================================
+test("uppercases string", () => {
+  expect(uppercase("hello")).toBe("HELLO");
 });
