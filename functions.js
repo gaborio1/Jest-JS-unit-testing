@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-// const { default: axios } = require("axios");
+// COLLECTION OF FUNCTIONS:
 
 const functions = {
   add: (num1, num2) => num1 + num2,
@@ -18,10 +18,16 @@ const functions = {
       .catch((err) => "error"),
 };
 
+// STANDALONE FUNCTIONS:
+
 const uppercase = (str) => str.toUpperCase();
+
+const cloneArray = (array) => [...array];
+
+// ===== EXPORT FUNCTIONS =====
 
 // EXPORT ONE
 // module.exports = functions;
 
 // EXPORT MULTIPLE
-module.exports = { functions, uppercase };
+module.exports = { functions, uppercase, cloneArray };

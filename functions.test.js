@@ -1,12 +1,12 @@
-//  const { TestWatcher } = require("jest");
+// BREAKING CODE DOWN INTO SMALLEST COMPONENTS/UNITS AND TESTING THEM INDIVIDUALLY
 
-// BRING IN functions.js FILE
+// ===== BRING IN functions.js FILE =====
 
-// IMPORT ONE
+// IMPORT ONE:
 // const functions = require("./functions");
 
-// IMPORT MULTIPLE
-const { functions, uppercase } = require("./functions");
+// IMPORT MULTIPLE:
+const { functions, uppercase, cloneArray } = require("./functions");
 
 // WE CAN RUN ANY TYPE OF FUNCTIONALITY BEFORE/AFTER A TEST/CERTAIN NUMBER OR GROUP OF TESTS WITH before/afterEAch(), before/afterAll() AND describe()
 
@@ -41,7 +41,10 @@ const nameCheck = () => console.log("Checking Name....");
 //   });
 // });
 
-// PASS IN A DESCRIPTION AND TTHE NEXT PARAMETER IS OUR FUNCTION
+// PASS IN A DESCRIPTION OF WHAT THE TEST IS DOING AND TTHE NEXT PARAMETER IS OUR FUNCTION
+
+// ===== COLLECTION OF FUNCTIONS =====
+
 // TO BE
 test("adds 2 + 2 to equal 4", () => {
   // THIS FUNCTION WITH THESE PARAMETERS IS toBe(4) toBe = MATCHER
@@ -65,10 +68,12 @@ test("adds 2 + 2 to NOT equal 5", () => {
 test("shoud be null", () => {
   expect(functions.isNull()).toBeNull();
 });
+
 // TO BE FALSY
 test("shoud be falsy", () => {
   expect(functions.checkValue(undefined)).toBeFalsy();
 });
+
 // TO EQUAL (FOR REFERENCE TYPES: array, object)
 test("user should be Brad Traversy object", () => {
   expect(functions.createUser()).toEqual({
@@ -76,6 +81,7 @@ test("user should be Brad Traversy object", () => {
     lastName: "Traversy",
   });
 });
+
 // LESS THAN(OR EQUAL)/ GREATER THAN(OR EQUAL)
 test("should be less than 1600", () => {
   const load1 = 800;
@@ -83,10 +89,12 @@ test("should be less than 1600", () => {
   // expect(load1 + load2).toBeLessThan(1600);
   expect(load1 + load2).toBeLessThanOrEqual(1600);
 });
+
 // REGEX
 test("there's no i in team", () => {
   expect("team").not.toMatch(/I/i);
 });
+
 // TO CONTAIN (ARRAYS)
 test("admin should be in usrnames", () => {
   const userNames = ["john", "karen", "admin"];
@@ -111,7 +119,17 @@ test("User fetched name should be Leanne Graham", async () => {
   expect(data.name).toEqual("Leanne Graham");
 });
 
-// ============================================================================
+// ===== STANDALONE FUNCTIONS =====
+
 test("uppercases string", () => {
   expect(uppercase("hello")).toBe("HELLO");
+});
+
+test("clones array", () => {
+  expect(cloneArray(["2", "4", false, "hello"])).toEqual([
+    "2",
+    "4",
+    false,
+    "hello",
+  ]);
 });
